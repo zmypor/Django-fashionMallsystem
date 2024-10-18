@@ -1,0 +1,6454 @@
+openapi: 3.0.3
+info:
+  title: fashionMall API
+  version: 1.0.0
+  description: fashionMall API 文档
+paths:
+  /api/address/address/:
+    get:
+      operationId: address_address_list
+      description: Address Administration Interface
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - address
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/fashionMallAddress'
+          description: ''
+    post:
+      operationId: address_address_create
+      description: Address Administration Interface
+      tags:
+      - address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallAddress'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallAddress'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallAddress'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallAddress'
+          description: ''
+  /api/address/address/{id}/:
+    get:
+      operationId: address_address_retrieve
+      description: Address Administration Interface
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 地址.
+        required: true
+      tags:
+      - address
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallAddress'
+          description: ''
+    put:
+      operationId: address_address_update
+      description: Address Administration Interface
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 地址.
+        required: true
+      tags:
+      - address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallAddress'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallAddress'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallAddress'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallAddress'
+          description: ''
+    patch:
+      operationId: address_address_partial_update
+      description: Address Administration Interface
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 地址.
+        required: true
+      tags:
+      - address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallAddress'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallAddress'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallAddress'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallAddress'
+          description: ''
+    delete:
+      operationId: address_address_destroy
+      description: Address Administration Interface
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 地址.
+        required: true
+      tags:
+      - address
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/address/user/:
+    get:
+      operationId: address_user_list
+      description: User Address Administration Interface
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - address
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/fashionMallUserAddress'
+          description: ''
+    post:
+      operationId: address_user_create
+      description: User Address Administration Interface
+      tags:
+      - address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallUserAddress'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallUserAddress'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallUserAddress'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallUserAddress'
+          description: ''
+  /api/address/user/{id}/:
+    get:
+      operationId: address_user_retrieve
+      description: User Address Administration Interface
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户地址.
+        required: true
+      tags:
+      - address
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallUserAddress'
+          description: ''
+    put:
+      operationId: address_user_update
+      description: User Address Administration Interface
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户地址.
+        required: true
+      tags:
+      - address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallUserAddress'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallUserAddress'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallUserAddress'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallUserAddress'
+          description: ''
+    patch:
+      operationId: address_user_partial_update
+      description: User Address Administration Interface
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户地址.
+        required: true
+      tags:
+      - address
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallUserAddress'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallUserAddress'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallUserAddress'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallUserAddress'
+          description: ''
+    delete:
+      operationId: address_user_destroy
+      description: User Address Administration Interface
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户地址.
+        required: true
+      tags:
+      - address
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/article/category/:
+    get:
+      operationId: article_category_list
+      description: 文章分类
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - article
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/fashionMallArticleCategory'
+          description: ''
+    post:
+      operationId: article_category_create
+      description: 文章分类
+      tags:
+      - article
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleCategory'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallArticleCategory'
+          description: ''
+  /api/article/category/{id}/:
+    get:
+      operationId: article_category_retrieve
+      description: 文章分类
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this fashionMallArticleCategory.
+        required: true
+      tags:
+      - article
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallArticleCategory'
+          description: ''
+    put:
+      operationId: article_category_update
+      description: 文章分类
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this fashionMallArticleCategory.
+        required: true
+      tags:
+      - article
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleCategory'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallArticleCategory'
+          description: ''
+    patch:
+      operationId: article_category_partial_update
+      description: 文章分类
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this fashionMallArticleCategory.
+        required: true
+      tags:
+      - article
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallArticleCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallArticleCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallArticleCategory'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallArticleCategory'
+          description: ''
+    delete:
+      operationId: article_category_destroy
+      description: 文章分类
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this fashionMallArticleCategory.
+        required: true
+      tags:
+      - article
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/article/content/:
+    get:
+      operationId: article_content_list
+      description: 文章内容
+      parameters:
+      - in: query
+        name: add_date__month
+        schema:
+          type: number
+        description: 月
+      - in: query
+        name: add_date__year
+        schema:
+          type: number
+        description: 年
+      - in: query
+        name: category
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - article
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallArticleContentList'
+          description: ''
+    post:
+      operationId: article_content_create
+      description: 文章内容
+      tags:
+      - article
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleContent'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleContent'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleContent'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallArticleContent'
+          description: ''
+  /api/article/content/{id}/:
+    get:
+      operationId: article_content_retrieve
+      description: 文章内容
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this fashionMallArticleContent.
+        required: true
+      tags:
+      - article
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallArticleContent'
+          description: ''
+    put:
+      operationId: article_content_update
+      description: 文章内容
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this fashionMallArticleContent.
+        required: true
+      tags:
+      - article
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleContent'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleContent'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallArticleContent'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallArticleContent'
+          description: ''
+    patch:
+      operationId: article_content_partial_update
+      description: 文章内容
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this fashionMallArticleContent.
+        required: true
+      tags:
+      - article
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallArticleContent'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallArticleContent'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallArticleContent'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallArticleContent'
+          description: ''
+    delete:
+      operationId: article_content_destroy
+      description: 文章内容
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this fashionMallArticleContent.
+        required: true
+      tags:
+      - article
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/auth/groups/:
+    get:
+      operationId: auth_groups_list
+      description: 用户组视图
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGroupList'
+          description: ''
+    post:
+      operationId: auth_groups_create
+      description: 用户组视图
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Group'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+  /api/auth/groups/{id}/:
+    get:
+      operationId: auth_groups_retrieve
+      description: 用户组视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 组.
+        required: true
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+    put:
+      operationId: auth_groups_update
+      description: 用户组视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 组.
+        required: true
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Group'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+    patch:
+      operationId: auth_groups_partial_update
+      description: 用户组视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 组.
+        required: true
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedGroup'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: ''
+    delete:
+      operationId: auth_groups_destroy
+      description: 用户组视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 组.
+        required: true
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/auth/logout/:
+    post:
+      operationId: auth_logout_create
+      description: 登出视图
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/auth/permissions/:
+    get:
+      operationId: auth_permissions_list
+      description: 权限视图
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPermissionList'
+          description: ''
+    post:
+      operationId: auth_permissions_create
+      description: 权限视图
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Permission'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Permission'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Permission'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: ''
+  /api/auth/permissions/{id}/:
+    get:
+      operationId: auth_permissions_retrieve
+      description: 权限视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 权限.
+        required: true
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: ''
+    put:
+      operationId: auth_permissions_update
+      description: 权限视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 权限.
+        required: true
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Permission'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Permission'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Permission'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: ''
+    patch:
+      operationId: auth_permissions_partial_update
+      description: 权限视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 权限.
+        required: true
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPermission'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPermission'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPermission'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+          description: ''
+    delete:
+      operationId: auth_permissions_destroy
+      description: 权限视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 权限.
+        required: true
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/auth/refresh/:
+    post:
+      operationId: auth_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /api/auth/register/:
+    post:
+      operationId: auth_register_create
+      description: 注册视图
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Register'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Register'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Register'
+          description: ''
+  /api/auth/sendemailcaptcha/:
+    post:
+      operationId: auth_sendemailcaptcha_create
+      description: 发送验证码
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Email'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Email'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Email'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Email'
+          description: ''
+  /api/auth/token/:
+    post:
+      operationId: auth_token_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+  /api/auth/userinfo/:
+    get:
+      operationId: auth_userinfo_retrieve
+      description: 获取用户信息
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/auth/users/:
+    get:
+      operationId: auth_users_list
+      description: 用户视图
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUserList'
+          description: ''
+    post:
+      operationId: auth_users_create
+      description: 用户视图
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/auth/users/{id}/:
+    get:
+      operationId: auth_users_retrieve
+      description: 用户视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户.
+        required: true
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    put:
+      operationId: auth_users_update
+      description: 用户视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户.
+        required: true
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    patch:
+      operationId: auth_users_partial_update
+      description: 用户视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户.
+        required: true
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    delete:
+      operationId: auth_users_destroy
+      description: 用户视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 用户.
+        required: true
+      tags:
+      - auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/auth/verify/:
+    post:
+      operationId: auth_verify_create
+      description: |-
+        Takes a token and indicates if it is valid.  This view provides no
+        information about a token's fitness for a particular use.
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenVerify'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenVerify'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenVerify'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenVerify'
+          description: ''
+  /api/auth/verifyemailcaptcha/:
+    post:
+      operationId: auth_verifyemailcaptcha_create
+      description: 验证邮箱
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyEmailCaptcha'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/VerifyEmailCaptcha'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/VerifyEmailCaptcha'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyEmailCaptcha'
+          description: ''
+  /api/cart/carts/:
+    get:
+      operationId: cart_carts_list
+      description: 购物车接口视图
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - cart
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallCartListList'
+          description: ''
+    post:
+      operationId: cart_carts_create
+      description: 购物车接口视图
+      tags:
+      - cart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallCart'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallCart'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallCart'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCart'
+          description: ''
+  /api/cart/carts/{id}/:
+    get:
+      operationId: cart_carts_retrieve
+      description: 购物车接口视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 购物车.
+        required: true
+      tags:
+      - cart
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCart'
+          description: ''
+    put:
+      operationId: cart_carts_update
+      description: 购物车接口视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 购物车.
+        required: true
+      tags:
+      - cart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallCart'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallCart'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallCart'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCart'
+          description: ''
+    patch:
+      operationId: cart_carts_partial_update
+      description: 购物车接口视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 购物车.
+        required: true
+      tags:
+      - cart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallCart'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallCart'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallCart'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCart'
+          description: ''
+    delete:
+      operationId: cart_carts_destroy
+      description: 购物车接口视图
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 购物车.
+        required: true
+      tags:
+      - cart
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/cash/cache/:
+    get:
+      operationId: cash_cache_retrieve
+      description: 获取结算数据
+      tags:
+      - cash
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCacheSettlement'
+          description: ''
+    post:
+      operationId: cash_cache_create
+      description: 缓存购物车结算
+      tags:
+      - cash
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallCacheSettlement'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallCacheSettlement'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallCacheSettlement'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCacheSettlement'
+          description: ''
+  /api/comment/comment/:
+    get:
+      operationId: comment_comment_list
+      description: 评论
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - comment
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+          description: ''
+    post:
+      operationId: comment_comment_create
+      description: 评论
+      tags:
+      - comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+          description: ''
+  /api/comment/comment/{id}/:
+    get:
+      operationId: comment_comment_retrieve
+      description: 评论
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 评论.
+        required: true
+      tags:
+      - comment
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+          description: ''
+    put:
+      operationId: comment_comment_update
+      description: 评论
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 评论.
+        required: true
+      tags:
+      - comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+          description: ''
+    patch:
+      operationId: comment_comment_partial_update
+      description: 评论
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 评论.
+        required: true
+      tags:
+      - comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallCommentOrderProduct'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallCommentOrderProduct'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallCommentOrderProduct'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCommentOrderProduct'
+          description: ''
+    delete:
+      operationId: comment_comment_destroy
+      description: 评论
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 评论.
+        required: true
+      tags:
+      - comment
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/comment/spu/{spu_id}/comments/:
+    get:
+      operationId: comment_spu_comments_retrieve
+      description: SPU评论
+      parameters:
+      - in: path
+        name: spu_id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - comment
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSPUComments'
+          description: ''
+  /api/common/fashionMall-ad/:
+    get:
+      operationId: common_fashionMall_ad_list
+      description: 广告位
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: slug
+        schema:
+          type: string
+      tags:
+      - common
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/fashionMallImagesAD'
+          description: ''
+    post:
+      operationId: common_fashionMall_ad_create
+      description: 广告位
+      tags:
+      - common
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallImagesAD'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallImagesAD'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallImagesAD'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallImagesAD'
+          description: ''
+  /api/common/fashionMall-ad/{id}/:
+    get:
+      operationId: common_fashionMall_ad_retrieve
+      description: 广告位
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 图片广告.
+        required: true
+      tags:
+      - common
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallImagesAD'
+          description: ''
+    put:
+      operationId: common_fashionMall_ad_update
+      description: 广告位
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 图片广告.
+        required: true
+      tags:
+      - common
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallImagesAD'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallImagesAD'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallImagesAD'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallImagesAD'
+          description: ''
+    patch:
+      operationId: common_fashionMall_ad_partial_update
+      description: 广告位
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 图片广告.
+        required: true
+      tags:
+      - common
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallImagesAD'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallImagesAD'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallImagesAD'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallImagesAD'
+          description: ''
+    delete:
+      operationId: common_fashionMall_ad_destroy
+      description: 广告位
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 图片广告.
+        required: true
+      tags:
+      - common
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/order/alipay-callback/:
+    get:
+      operationId: order_alipay_callback_retrieve
+      description: 支付宝回调
+      tags:
+      - order
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: order_alipay_callback_create
+      description: 支付宝回调
+      tags:
+      - order
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/order/confirm-order-product/{order_number}/:
+    post:
+      operationId: order_confirm_order_product_create
+      description: 确认收货
+      parameters:
+      - in: path
+        name: order_number
+        schema:
+          type: string
+        required: true
+      tags:
+      - order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallConfirmOrderProduct'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallConfirmOrderProduct'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallConfirmOrderProduct'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallConfirmOrderProduct'
+          description: ''
+  /api/order/order/:
+    get:
+      operationId: order_order_list
+      description: 订单
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: pay_method
+        schema:
+          type: integer
+          title: 支付方式
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+        description: |-
+          * `1` - 支付宝支付
+          * `2` - 微信支付
+          * `3` - 余额支付
+          * `4` - 货到付款
+      - in: query
+        name: pay_status
+        schema:
+          type: integer
+          title: 订单状态
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+        description: |-
+          * `0` - 已过期
+          * `1` - 待支付
+          * `2` - 待发货
+          * `3` - 待收货
+          * `4` - 待评价
+          * `5` - 已完成
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: shipping_method
+        schema:
+          type: integer
+          title: 配送方式
+          enum:
+          - 1
+          - 2
+        description: |-
+          * `1` - 快递
+          * `2` - 自提
+      tags:
+      - order
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallOrderList'
+          description: ''
+    post:
+      operationId: order_order_create
+      description: 订单
+      tags:
+      - order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallOrder'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallOrder'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallOrder'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallOrder'
+          description: ''
+  /api/order/order-pay/{order_number}/:
+    put:
+      operationId: order_order_pay_update
+      description: 订单支付
+      parameters:
+      - in: path
+        name: order_number
+        schema:
+          type: string
+        required: true
+      tags:
+      - order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallOrderPay'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallOrderPay'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallOrderPay'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallOrderPay'
+          description: ''
+    patch:
+      operationId: order_order_pay_partial_update
+      description: 订单支付
+      parameters:
+      - in: path
+        name: order_number
+        schema:
+          type: string
+        required: true
+      tags:
+      - order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallOrderPay'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallOrderPay'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallOrderPay'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallOrderPay'
+          description: ''
+  /api/order/order/{order_number}/:
+    get:
+      operationId: order_order_retrieve
+      description: 订单
+      parameters:
+      - in: path
+        name: order_number
+        schema:
+          type: string
+          title: 订单编号
+        required: true
+      tags:
+      - order
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallOrder'
+          description: ''
+    put:
+      operationId: order_order_update
+      description: 订单
+      parameters:
+      - in: path
+        name: order_number
+        schema:
+          type: string
+          title: 订单编号
+        required: true
+      tags:
+      - order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallOrder'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallOrder'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallOrder'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallOrder'
+          description: ''
+    patch:
+      operationId: order_order_partial_update
+      description: 订单
+      parameters:
+      - in: path
+        name: order_number
+        schema:
+          type: string
+          title: 订单编号
+        required: true
+      tags:
+      - order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallOrder'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallOrder'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallOrder'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallOrder'
+          description: ''
+    delete:
+      operationId: order_order_destroy
+      description: 订单
+      parameters:
+      - in: path
+        name: order_number
+        schema:
+          type: string
+          title: 订单编号
+        required: true
+      tags:
+      - order
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/page/create/:
+    post:
+      operationId: page_create_create
+      description: |-
+        单页列表及新增
+
+        Args:
+            mixins (_type_): _description_
+            mixins (_type_): _description_
+            viewsets (_type_): _description_
+      tags:
+      - page
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FlatPage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FlatPage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FlatPage'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlatPage'
+          description: ''
+  /api/page/detail/{url}:
+    get:
+      operationId: page_detail_retrieve
+      description: 获取flatpage详情
+      parameters:
+      - in: path
+        name: url
+        schema:
+          type: string
+        required: true
+      tags:
+      - page
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlatPage'
+          description: ''
+    put:
+      operationId: page_detail_update
+      description: 获取flatpage详情
+      parameters:
+      - in: path
+        name: url
+        schema:
+          type: string
+        required: true
+      tags:
+      - page
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FlatPage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/FlatPage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FlatPage'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlatPage'
+          description: ''
+    patch:
+      operationId: page_detail_partial_update
+      description: 获取flatpage详情
+      parameters:
+      - in: path
+        name: url
+        schema:
+          type: string
+        required: true
+      tags:
+      - page
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedFlatPage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedFlatPage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedFlatPage'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlatPage'
+          description: ''
+    delete:
+      operationId: page_detail_destroy
+      description: 删除
+      parameters:
+      - in: path
+        name: url
+        schema:
+          type: string
+        required: true
+      tags:
+      - page
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/page/list/:
+    get:
+      operationId: page_list_list
+      description: |-
+        单页列表及新增
+
+        Args:
+            mixins (_type_): _description_
+            mixins (_type_): _description_
+            viewsets (_type_): _description_
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - page
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedFlatPageList'
+          description: ''
+  /api/shop/brand/:
+    get:
+      operationId: shop_brand_list
+      description: 商品品牌
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallBrandList'
+          description: ''
+    post:
+      operationId: shop_brand_create
+      description: 商品品牌
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallBrand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallBrand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallBrand'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallBrand'
+          description: ''
+  /api/shop/brand/{id}/:
+    get:
+      operationId: shop_brand_retrieve
+      description: 商品品牌
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 品牌.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallBrand'
+          description: ''
+    put:
+      operationId: shop_brand_update
+      description: 商品品牌
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 品牌.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallBrand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallBrand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallBrand'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallBrand'
+          description: ''
+    patch:
+      operationId: shop_brand_partial_update
+      description: 商品品牌
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 品牌.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallBrand'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallBrand'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallBrand'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallBrand'
+          description: ''
+    delete:
+      operationId: shop_brand_destroy
+      description: 商品品牌
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 品牌.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/shop/category/:
+    get:
+      operationId: shop_category_list
+      description: 商品分类
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: parent
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallCategoryList'
+          description: ''
+    post:
+      operationId: shop_category_create
+      description: 商品分类
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallCategory'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCategory'
+          description: ''
+  /api/shop/category/{id}/:
+    get:
+      operationId: shop_category_retrieve
+      description: 商品分类
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 分类.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCategory'
+          description: ''
+    put:
+      operationId: shop_category_update
+      description: 商品分类
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 分类.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallCategory'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCategory'
+          description: ''
+    patch:
+      operationId: shop_category_partial_update
+      description: 商品分类
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 分类.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallCategory'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallCategory'
+          description: ''
+    delete:
+      operationId: shop_category_destroy
+      description: 商品分类
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 分类.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/shop/sku/:
+    get:
+      operationId: shop_sku_list
+      description: 商品SKU
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallSKUList'
+          description: ''
+    post:
+      operationId: shop_sku_create
+      description: 商品SKU
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKU'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKU'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKU'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSKU'
+          description: ''
+  /api/shop/sku-specs/:
+    get:
+      operationId: shop_sku_specs_list
+      description: 商品SKU规格
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallSKUSpecsList'
+          description: ''
+    post:
+      operationId: shop_sku_specs_create
+      description: 商品SKU规格
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKUSpecs'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKUSpecs'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKUSpecs'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSKUSpecs'
+          description: ''
+  /api/shop/sku-specs/{id}/:
+    get:
+      operationId: shop_sku_specs_retrieve
+      description: 商品SKU规格
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this SKU规格.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSKUSpecs'
+          description: ''
+    put:
+      operationId: shop_sku_specs_update
+      description: 商品SKU规格
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this SKU规格.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKUSpecs'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKUSpecs'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKUSpecs'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSKUSpecs'
+          description: ''
+    patch:
+      operationId: shop_sku_specs_partial_update
+      description: 商品SKU规格
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this SKU规格.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSKUSpecs'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSKUSpecs'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSKUSpecs'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSKUSpecs'
+          description: ''
+    delete:
+      operationId: shop_sku_specs_destroy
+      description: 商品SKU规格
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this SKU规格.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/shop/sku/{id}/:
+    get:
+      operationId: shop_sku_retrieve
+      description: 商品SKU
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this SKU.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSKU'
+          description: ''
+    put:
+      operationId: shop_sku_update
+      description: 商品SKU
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this SKU.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKU'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKU'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSKU'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSKU'
+          description: ''
+    patch:
+      operationId: shop_sku_partial_update
+      description: 商品SKU
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this SKU.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSKU'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSKU'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSKU'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSKU'
+          description: ''
+    delete:
+      operationId: shop_sku_destroy
+      description: 商品SKU
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this SKU.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/shop/specs/:
+    get:
+      operationId: shop_specs_list
+      description: 商品规格
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallSpecsList'
+          description: ''
+    post:
+      operationId: shop_specs_create
+      description: 商品规格
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecs'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecs'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecs'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSpecs'
+          description: ''
+  /api/shop/specs-value/:
+    get:
+      operationId: shop_specs_value_list
+      description: 商品规格值
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallSpecsValueList'
+          description: ''
+    post:
+      operationId: shop_specs_value_create
+      description: 商品规格值
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecsValue'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecsValue'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecsValue'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSpecsValue'
+          description: ''
+  /api/shop/specs-value/{id}/:
+    get:
+      operationId: shop_specs_value_retrieve
+      description: 商品规格值
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 规格值.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSpecsValue'
+          description: ''
+    put:
+      operationId: shop_specs_value_update
+      description: 商品规格值
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 规格值.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecsValue'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecsValue'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecsValue'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSpecsValue'
+          description: ''
+    patch:
+      operationId: shop_specs_value_partial_update
+      description: 商品规格值
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 规格值.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSpecsValue'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSpecsValue'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSpecsValue'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSpecsValue'
+          description: ''
+    delete:
+      operationId: shop_specs_value_destroy
+      description: 商品规格值
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 规格值.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/shop/specs/{id}/:
+    get:
+      operationId: shop_specs_retrieve
+      description: 商品规格
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 规格.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSpecs'
+          description: ''
+    put:
+      operationId: shop_specs_update
+      description: 商品规格
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 规格.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecs'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecs'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSpecs'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSpecs'
+          description: ''
+    patch:
+      operationId: shop_specs_partial_update
+      description: 商品规格
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 规格.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSpecs'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSpecs'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSpecs'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSpecs'
+          description: ''
+    delete:
+      operationId: shop_specs_destroy
+      description: 商品规格
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 规格.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/shop/spu/:
+    get:
+      operationId: shop_spu_list
+      description: 商品SPU
+      parameters:
+      - in: query
+        name: brand
+        schema:
+          type: integer
+      - in: query
+        name: category
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallSPUList'
+          description: ''
+    post:
+      operationId: shop_spu_create
+      description: 商品SPU
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPU'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPU'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPU'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSPU'
+          description: ''
+  /api/shop/spu-image/:
+    get:
+      operationId: shop_spu_image_list
+      description: 商品SPU图片
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedfashionMallSPUImageList'
+          description: ''
+    post:
+      operationId: shop_spu_image_create
+      description: 商品SPU图片
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPUImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPUImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPUImage'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSPUImage'
+          description: ''
+  /api/shop/spu-image/{id}/:
+    get:
+      operationId: shop_spu_image_retrieve
+      description: 商品SPU图片
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 商品图.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSPUImage'
+          description: ''
+    put:
+      operationId: shop_spu_image_update
+      description: 商品SPU图片
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 商品图.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPUImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPUImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPUImage'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSPUImage'
+          description: ''
+    patch:
+      operationId: shop_spu_image_partial_update
+      description: 商品SPU图片
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 商品图.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSPUImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSPUImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSPUImage'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSPUImage'
+          description: ''
+    delete:
+      operationId: shop_spu_image_destroy
+      description: 商品SPU图片
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 商品图.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/shop/spu/{id}/:
+    get:
+      operationId: shop_spu_retrieve
+      description: 商品SPU
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 商品.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSPUDetail'
+          description: ''
+    put:
+      operationId: shop_spu_update
+      description: 商品SPU
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 商品.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPU'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPU'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/fashionMallSPU'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSPU'
+          description: ''
+    patch:
+      operationId: shop_spu_partial_update
+      description: 商品SPU
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 商品.
+        required: true
+      tags:
+      - shop
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSPU'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSPU'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedfashionMallSPU'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fashionMallSPU'
+          description: ''
+    delete:
+      operationId: shop_spu_destroy
+      description: 商品SPU
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this 商品.
+        required: true
+      tags:
+      - shop
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    fashionMallAddress:
+      type: object
+      description: 地址序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        code:
+          type: string
+          title: 编码
+          maxLength: 50
+        level:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 级别
+        parent:
+          type: integer
+          nullable: true
+          title: 父级
+      required:
+      - add_date
+      - code
+      - id
+      - is_delete
+      - name
+      - pub_date
+    fashionMallArticleCategory:
+      type: object
+      description: 文章分类序列化
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        parent:
+          type: integer
+          nullable: true
+          title: 父类
+      required:
+      - add_date
+      - id
+      - is_delete
+      - name
+      - pub_date
+    fashionMallArticleContent:
+      type: object
+      description: 文章内容序列化
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        title:
+          type: string
+          title: 标题
+          maxLength: 100
+        desc:
+          type: string
+          title: 描述
+          maxLength: 150
+        keywords:
+          type: string
+          title: 关键词
+          maxLength: 150
+        content:
+          type: string
+          title: 内容
+        status:
+          type: boolean
+          title: 状态
+        category:
+          type: integer
+          title: 分类
+      required:
+      - add_date
+      - category
+      - content
+      - id
+      - is_delete
+      - pub_date
+      - title
+    fashionMallCacheSettlement:
+      type: object
+      description: 结算缓存序列化器
+      properties:
+        cart_ids:
+          type: array
+          items:
+            type: integer
+            minimum: 1
+          maxItems: 50
+          minItems: 1
+        sku_id:
+          type: integer
+          minimum: 1
+        sku_count:
+          type: integer
+          minimum: 1
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+      required:
+      - type
+    fashionMallImagesAD:
+      type: object
+      description: 广告序列化
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        image:
+          type: string
+          format: uri
+          title: 图片
+        url:
+          type: string
+          format: uri
+          nullable: true
+          title: 链接
+          maxLength: 200
+        slug:
+          type: string
+          description: slug可以重复，用作广告位标识，如：banner-1
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        sort:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          title: 排序
+      required:
+      - add_date
+      - id
+      - image
+      - is_delete
+      - name
+      - pub_date
+    fashionMallBrand:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        logo:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - add_date
+      - id
+      - is_delete
+      - name
+      - pub_date
+    fashionMallCart:
+      type: object
+      description: 购物车序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        quantity:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 数量
+        sku:
+          type: integer
+      required:
+      - add_date
+      - id
+      - is_delete
+      - pub_date
+      - quantity
+      - sku
+    fashionMallCartList:
+      type: object
+      description: 购物车列表序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        sku:
+          allOf:
+          - $ref: '#/components/schemas/fashionMallSKU'
+          readOnly: true
+        specs:
+          type: string
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        quantity:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 数量
+        user:
+          type: integer
+          title: 用户
+      required:
+      - add_date
+      - id
+      - is_delete
+      - pub_date
+      - sku
+      - specs
+      - user
+    fashionMallCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        is_floor:
+          type: boolean
+          title: 是否为楼层
+        sort:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 排序
+        parent:
+          type: integer
+          nullable: true
+          title: 父类
+      required:
+      - add_date
+      - id
+      - is_delete
+      - name
+      - pub_date
+    fashionMallCommentOrderProduct:
+      type: object
+      description: 订单商品评论列表序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        object_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 评论对象ID
+        content:
+          type: string
+          title: 评论内容
+        score:
+          allOf:
+          - $ref: '#/components/schemas/ScoreEnum'
+          title: 评分
+          minimum: -9223372036854775808
+          maximum: 9223372036854775807
+        status:
+          type: boolean
+          title: 状态
+      required:
+      - add_date
+      - content
+      - id
+      - is_delete
+      - object_id
+      - pub_date
+    fashionMallConfirmOrderProduct:
+      type: object
+      description: 订单确认收货序列化器
+      properties:
+        pay_status:
+          type: integer
+          maximum: 4
+          minimum: 4
+        order_number:
+          type: string
+          readOnly: true
+          title: 订单编号
+      required:
+      - order_number
+    fashionMallOrder:
+      type: object
+      description: 订单序列化器
+      properties:
+        address:
+          type: string
+          title: 收货地址
+          maxLength: 150
+        pick_up:
+          type: string
+          title: 收件人
+          maxLength: 50
+        phone:
+          type: string
+          title: 手机
+          maxLength: 11
+        email:
+          type: string
+          format: email
+          title: 邮箱
+          maxLength: 254
+        mark:
+          type: string
+          title: 备注
+        fashionMallorderproduct_set:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallOrderProduct'
+        order_number:
+          type: string
+          readOnly: true
+          title: 订单编号
+        total_amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+          title: 商品总价
+        paid_amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+          title: 实际支付
+        orderproduct_sku_spu_names:
+          type: string
+          readOnly: true
+        is_pay:
+          type: boolean
+          readOnly: true
+          default: false
+        pay_method:
+          allOf:
+          - $ref: '#/components/schemas/PayMethodEnum'
+          readOnly: true
+          title: 支付方式
+        pay_status:
+          allOf:
+          - $ref: '#/components/schemas/PayStatusEnum'
+          readOnly: true
+          title: 订单状态
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pay_date:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+          title: 支付时间
+      required:
+      - add_date
+      - address
+      - fashionMallorderproduct_set
+      - is_pay
+      - order_number
+      - orderproduct_sku_spu_names
+      - paid_amount
+      - pay_date
+      - pay_method
+      - pay_status
+      - phone
+      - pick_up
+      - total_amount
+    fashionMallOrderPay:
+      type: object
+      description: 订单支付序列化器
+      properties:
+        order_number:
+          type: string
+          title: 订单编号
+          maxLength: 50
+        pay_method:
+          allOf:
+          - $ref: '#/components/schemas/PayMethodEnum'
+          title: 支付方式
+          minimum: 0
+          maximum: 9223372036854775807
+        alipay_api:
+          type: string
+          format: uri
+          readOnly: true
+      required:
+      - alipay_api
+      - order_number
+    fashionMallOrderProduct:
+      type: object
+      description: 订单商品序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        sku:
+          type: integer
+          title: 商品
+        num:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 数量
+        specs:
+          title: 规格
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+          title: 单价
+        title:
+          type: string
+          readOnly: true
+        img:
+          type: string
+          format: uri
+          readOnly: true
+      required:
+      - id
+      - img
+      - price
+      - sku
+      - title
+    fashionMallSKU:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          readOnly: true
+        img:
+          type: string
+          format: uri
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        dash_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          title: 划线价
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          title: 价格
+        stock:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          title: 库存
+        sale:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          title: 销量
+        is_sale:
+          type: boolean
+          title: 是否上架
+        spu:
+          type: integer
+      required:
+      - add_date
+      - dash_price
+      - id
+      - img
+      - is_delete
+      - price
+      - pub_date
+      - spu
+      - title
+    fashionMallSKUSpecs:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        sku:
+          type: integer
+        value:
+          type: array
+          items:
+            type: integer
+            title: 值
+          title: 值
+      required:
+      - add_date
+      - id
+      - is_delete
+      - pub_date
+      - sku
+    fashionMallSPU:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        dash_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        stock:
+          type: integer
+          readOnly: true
+        sale:
+          type: integer
+          readOnly: true
+        img:
+          type: string
+          format: uri
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        detail:
+          type: string
+          nullable: true
+          title: 详情
+        is_sale:
+          type: boolean
+          title: 是否上架
+        category:
+          type: integer
+          title: 分类
+        brand:
+          type: integer
+          nullable: true
+          title: 品牌
+      required:
+      - add_date
+      - category
+      - dash_price
+      - id
+      - img
+      - is_delete
+      - name
+      - price
+      - pub_date
+      - sale
+      - stock
+    fashionMallSPUComments:
+      type: object
+      properties:
+        spu_id:
+          type: integer
+          minimum: 1
+          title: 商品ID
+          description: 商品ID
+      required:
+      - spu_id
+    fashionMallSPUDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        dash_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        stock:
+          type: integer
+          readOnly: true
+        sale:
+          type: integer
+          readOnly: true
+        img:
+          type: string
+          format: uri
+          readOnly: true
+        fashionMallspuimage_set:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallSPUImage'
+          readOnly: true
+        specs:
+          type: string
+          readOnly: true
+        skus:
+          type: string
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        detail:
+          type: string
+          nullable: true
+          title: 详情
+        is_sale:
+          type: boolean
+          title: 是否上架
+        category:
+          type: integer
+          title: 分类
+        brand:
+          type: integer
+          nullable: true
+          title: 品牌
+      required:
+      - add_date
+      - fashionMallspuimage_set
+      - category
+      - dash_price
+      - id
+      - img
+      - is_delete
+      - name
+      - price
+      - pub_date
+      - sale
+      - skus
+      - specs
+      - stock
+    fashionMallSPUImage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        image:
+          type: string
+          format: uri
+          nullable: true
+          title: 图片
+        status:
+          type: boolean
+          title: 是否显示
+        spu:
+          type: integer
+      required:
+      - add_date
+      - id
+      - is_delete
+      - pub_date
+      - spu
+    fashionMallSpecs:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+      required:
+      - add_date
+      - id
+      - is_delete
+      - name
+      - pub_date
+    fashionMallSpecsValue:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        value:
+          type: string
+          title: 值
+          maxLength: 50
+        specs:
+          type: integer
+          title: 规格
+      required:
+      - add_date
+      - id
+      - is_delete
+      - pub_date
+      - specs
+      - value
+    fashionMallUserAddress:
+      type: object
+      description: 用户收货地址序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 收货人
+          maxLength: 20
+        phone:
+          type: string
+          title: 手机号
+          maxLength: 11
+        code:
+          type: string
+          title: 邮政编码
+          maxLength: 6
+        detail:
+          type: string
+          title: 详细地址
+          maxLength: 150
+        is_default:
+          type: boolean
+          title: 默认地址
+      required:
+      - add_date
+      - detail
+      - id
+      - is_delete
+      - name
+      - phone
+      - pub_date
+    Email:
+      type: object
+      description: 邮箱
+      properties:
+        email:
+          type: string
+          format: email
+          title: 邮箱
+          maxLength: 150
+          minLength: 3
+      required:
+      - email
+    FlatPage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          maxLength: 100
+        title:
+          type: string
+          title: 标题
+          maxLength: 200
+        content:
+          type: string
+          title: 内容
+        enable_comments:
+          type: boolean
+          title: 允许评论
+        registration_required:
+          type: boolean
+          title: 请先注册
+          description: 如果被选中，仅登录用户才可以查看此页。
+        sites:
+          type: array
+          items:
+            type: integer
+            title: 站点
+          title: 站点
+      required:
+      - id
+      - sites
+      - title
+      - url
+    Group:
+      type: object
+      description: 用户组序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+          readOnly: true
+        name:
+          type: string
+          title: 名称
+          maxLength: 150
+      required:
+      - id
+      - name
+      - permissions
+    PaginatedfashionMallArticleContentList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallArticleContent'
+    PaginatedfashionMallBrandList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallBrand'
+    PaginatedfashionMallCartListList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallCartList'
+    PaginatedfashionMallCategoryList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallCategory'
+    PaginatedfashionMallOrderList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallOrder'
+    PaginatedfashionMallSKUList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallSKU'
+    PaginatedfashionMallSKUSpecsList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallSKUSpecs'
+    PaginatedfashionMallSPUImageList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallSPUImage'
+    PaginatedfashionMallSPUList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallSPU'
+    PaginatedfashionMallSpecsList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallSpecs'
+    PaginatedfashionMallSpecsValueList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallSpecsValue'
+    PaginatedFlatPageList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlatPage'
+    PaginatedGroupList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+    PaginatedPermissionList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    PaginatedUserList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    PatchedfashionMallAddress:
+      type: object
+      description: 地址序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        code:
+          type: string
+          title: 编码
+          maxLength: 50
+        level:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 级别
+        parent:
+          type: integer
+          nullable: true
+          title: 父级
+    PatchedfashionMallArticleCategory:
+      type: object
+      description: 文章分类序列化
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        parent:
+          type: integer
+          nullable: true
+          title: 父类
+    PatchedfashionMallArticleContent:
+      type: object
+      description: 文章内容序列化
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        title:
+          type: string
+          title: 标题
+          maxLength: 100
+        desc:
+          type: string
+          title: 描述
+          maxLength: 150
+        keywords:
+          type: string
+          title: 关键词
+          maxLength: 150
+        content:
+          type: string
+          title: 内容
+        status:
+          type: boolean
+          title: 状态
+        category:
+          type: integer
+          title: 分类
+    PatchedfashionMallImagesAD:
+      type: object
+      description: 广告序列化
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        image:
+          type: string
+          format: uri
+          title: 图片
+        url:
+          type: string
+          format: uri
+          nullable: true
+          title: 链接
+          maxLength: 200
+        slug:
+          type: string
+          description: slug可以重复，用作广告位标识，如：banner-1
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        sort:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          title: 排序
+    PatchedfashionMallBrand:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        logo:
+          type: string
+          format: uri
+          nullable: true
+    PatchedfashionMallCart:
+      type: object
+      description: 购物车序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        quantity:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 数量
+        sku:
+          type: integer
+    PatchedfashionMallCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        is_floor:
+          type: boolean
+          title: 是否为楼层
+        sort:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 排序
+        parent:
+          type: integer
+          nullable: true
+          title: 父类
+    PatchedfashionMallCommentOrderProduct:
+      type: object
+      description: 订单商品评论列表序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        object_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          title: 评论对象ID
+        content:
+          type: string
+          title: 评论内容
+        score:
+          allOf:
+          - $ref: '#/components/schemas/ScoreEnum'
+          title: 评分
+          minimum: -9223372036854775808
+          maximum: 9223372036854775807
+        status:
+          type: boolean
+          title: 状态
+    PatchedfashionMallOrder:
+      type: object
+      description: 订单序列化器
+      properties:
+        address:
+          type: string
+          title: 收货地址
+          maxLength: 150
+        pick_up:
+          type: string
+          title: 收件人
+          maxLength: 50
+        phone:
+          type: string
+          title: 手机
+          maxLength: 11
+        email:
+          type: string
+          format: email
+          title: 邮箱
+          maxLength: 254
+        mark:
+          type: string
+          title: 备注
+        fashionMallorderproduct_set:
+          type: array
+          items:
+            $ref: '#/components/schemas/fashionMallOrderProduct'
+        order_number:
+          type: string
+          readOnly: true
+          title: 订单编号
+        total_amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+          title: 商品总价
+        paid_amount:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+          title: 实际支付
+        orderproduct_sku_spu_names:
+          type: string
+          readOnly: true
+        is_pay:
+          type: boolean
+          readOnly: true
+          default: false
+        pay_method:
+          allOf:
+          - $ref: '#/components/schemas/PayMethodEnum'
+          readOnly: true
+          title: 支付方式
+        pay_status:
+          allOf:
+          - $ref: '#/components/schemas/PayStatusEnum'
+          readOnly: true
+          title: 订单状态
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pay_date:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+          title: 支付时间
+    PatchedfashionMallOrderPay:
+      type: object
+      description: 订单支付序列化器
+      properties:
+        order_number:
+          type: string
+          title: 订单编号
+          maxLength: 50
+        pay_method:
+          allOf:
+          - $ref: '#/components/schemas/PayMethodEnum'
+          title: 支付方式
+          minimum: 0
+          maximum: 9223372036854775807
+        alipay_api:
+          type: string
+          format: uri
+          readOnly: true
+    PatchedfashionMallSKU:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          readOnly: true
+        img:
+          type: string
+          format: uri
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        dash_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          title: 划线价
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          title: 价格
+        stock:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          title: 库存
+        sale:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          title: 销量
+        is_sale:
+          type: boolean
+          title: 是否上架
+        spu:
+          type: integer
+    PatchedfashionMallSKUSpecs:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        sku:
+          type: integer
+        value:
+          type: array
+          items:
+            type: integer
+            title: 值
+          title: 值
+    PatchedfashionMallSPU:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        dash_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+          readOnly: true
+        stock:
+          type: integer
+          readOnly: true
+        sale:
+          type: integer
+          readOnly: true
+        img:
+          type: string
+          format: uri
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+        detail:
+          type: string
+          nullable: true
+          title: 详情
+        is_sale:
+          type: boolean
+          title: 是否上架
+        category:
+          type: integer
+          title: 分类
+        brand:
+          type: integer
+          nullable: true
+          title: 品牌
+    PatchedfashionMallSPUImage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        image:
+          type: string
+          format: uri
+          nullable: true
+          title: 图片
+        status:
+          type: boolean
+          title: 是否显示
+        spu:
+          type: integer
+    PatchedfashionMallSpecs:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 名称
+          maxLength: 50
+    PatchedfashionMallSpecsValue:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        value:
+          type: string
+          title: 值
+          maxLength: 50
+        specs:
+          type: integer
+          title: 规格
+    PatchedfashionMallUserAddress:
+      type: object
+      description: 用户收货地址序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        add_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 添加时间
+        pub_date:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 修改时间
+        is_delete:
+          type: boolean
+          readOnly: true
+          title: 删除标记
+        name:
+          type: string
+          title: 收货人
+          maxLength: 20
+        phone:
+          type: string
+          title: 手机号
+          maxLength: 11
+        code:
+          type: string
+          title: 邮政编码
+          maxLength: 6
+        detail:
+          type: string
+          title: 详细地址
+          maxLength: 150
+        is_default:
+          type: boolean
+          title: 默认地址
+    PatchedFlatPage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          maxLength: 100
+        title:
+          type: string
+          title: 标题
+          maxLength: 200
+        content:
+          type: string
+          title: 内容
+        enable_comments:
+          type: boolean
+          title: 允许评论
+        registration_required:
+          type: boolean
+          title: 请先注册
+          description: 如果被选中，仅登录用户才可以查看此页。
+        sites:
+          type: array
+          items:
+            type: integer
+            title: 站点
+          title: 站点
+    PatchedGroup:
+      type: object
+      description: 用户组序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+          readOnly: true
+        name:
+          type: string
+          title: 名称
+          maxLength: 150
+    PatchedPermission:
+      type: object
+      description: 权限序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 名称
+          maxLength: 255
+        codename:
+          type: string
+          title: 代码名称
+          maxLength: 100
+        content_type:
+          type: integer
+          title: 内容类型
+    PatchedUser:
+      type: object
+      description: 用户序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+          readOnly: true
+        user_permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+          readOnly: true
+        password:
+          type: string
+          title: 密码
+          maxLength: 128
+        last_login:
+          type: string
+          format: date-time
+          nullable: true
+          title: 上次登录
+        is_superuser:
+          type: boolean
+          title: 超级用户状态
+          description: 指明该用户缺省拥有所有权限。
+        username:
+          type: string
+          title: 用户名
+          description: 必填；长度为150个字符或以下；只能包含字母、数字、特殊字符“@”、“.”、“-”和“_”。
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: 电子邮件地址
+          maxLength: 254
+        is_staff:
+          type: boolean
+          title: 工作人员状态
+          description: 指明用户是否可以登录到这个管理站点。
+        is_active:
+          type: boolean
+          title: 有效
+          description: 指明用户是否被认为是活跃的。以反选代替删除帐号。
+        date_joined:
+          type: string
+          format: date-time
+          title: 加入日期
+    PayMethodEnum:
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      type: integer
+      description: |-
+        * `1` - 支付宝支付
+        * `2` - 微信支付
+        * `3` - 余额支付
+        * `4` - 货到付款
+    PayStatusEnum:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      type: integer
+      description: |-
+        * `0` - 已过期
+        * `1` - 待支付
+        * `2` - 待发货
+        * `3` - 待收货
+        * `4` - 待评价
+        * `5` - 已完成
+    Permission:
+      type: object
+      description: 权限序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 名称
+          maxLength: 255
+        codename:
+          type: string
+          title: 代码名称
+          maxLength: 100
+        content_type:
+          type: integer
+          title: 内容类型
+      required:
+      - codename
+      - content_type
+      - id
+      - name
+    Register:
+      type: object
+      description: |-
+        用户注册序列化器
+        需要通过验证码验证邮箱的合法性
+      properties:
+        username:
+          type: string
+          title: 用户名
+          description: 必填；长度为150个字符或以下；只能包含字母、数字、特殊字符“@”、“.”、“-”和“_”。
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+          title: 密码
+          maxLength: 128
+        email:
+          type: string
+          format: email
+          title: 邮箱
+          maxLength: 150
+          minLength: 3
+        code:
+          type: string
+          writeOnly: true
+          title: 验证码
+          maxLength: 4
+          minLength: 3
+      required:
+      - code
+      - email
+      - password
+      - username
+    ScoreEnum:
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      type: integer
+      description: |-
+        * `1` - 1星
+        * `2` - 2星
+        * `3` - 3星
+        * `4` - 4星
+        * `5` - 5星
+    TokenObtainPair:
+      type: object
+      description: 登录获取令牌
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - password
+      - username
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          writeOnly: true
+      required:
+      - access
+      - refresh
+    TokenVerify:
+      type: object
+      properties:
+        token:
+          type: string
+          writeOnly: true
+      required:
+      - token
+    TypeEnum:
+      enum:
+      - cart
+      - sku
+      type: string
+      description: |-
+        * `cart` - cart
+        * `sku` - sku
+    User:
+      type: object
+      description: 用户序列化器
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+          readOnly: true
+        user_permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+          readOnly: true
+        password:
+          type: string
+          title: 密码
+          maxLength: 128
+        last_login:
+          type: string
+          format: date-time
+          nullable: true
+          title: 上次登录
+        is_superuser:
+          type: boolean
+          title: 超级用户状态
+          description: 指明该用户缺省拥有所有权限。
+        username:
+          type: string
+          title: 用户名
+          description: 必填；长度为150个字符或以下；只能包含字母、数字、特殊字符“@”、“.”、“-”和“_”。
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: 电子邮件地址
+          maxLength: 254
+        is_staff:
+          type: boolean
+          title: 工作人员状态
+          description: 指明用户是否可以登录到这个管理站点。
+        is_active:
+          type: boolean
+          title: 有效
+          description: 指明用户是否被认为是活跃的。以反选代替删除帐号。
+        date_joined:
+          type: string
+          format: date-time
+          title: 加入日期
+      required:
+      - groups
+      - id
+      - password
+      - user_permissions
+      - username
+    VerifyEmailCaptcha:
+      type: object
+      description: 校验邮箱验证码
+      properties:
+        email:
+          type: string
+          format: email
+          title: 邮箱
+          maxLength: 150
+          minLength: 3
+        code:
+          type: string
+          writeOnly: true
+          title: 验证码
+          maxLength: 4
+          minLength: 3
+      required:
+      - code
+      - email
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

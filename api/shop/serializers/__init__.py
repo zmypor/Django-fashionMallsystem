@@ -1,0 +1,8 @@
+from .brand import fashionMallBrandSerializer
+from .category import fashionMallCategorySerializer
+from .sku import fashionMallSKUSerializer
+from .spu import fashionMallSPUSerializer, fashionMallSPUDetailSerializer
+from .specs import fashionMallSpecsSerializer
+from .specsvalue import fashionMallSpecsValueSerializer
+from .skuspecs import fashionMallSKUSpecsSerializer
+from .spuimage import fashionMallSPUImageSerializer
