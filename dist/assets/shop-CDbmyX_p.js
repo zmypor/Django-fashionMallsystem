@@ -1,1 +1,0 @@
-import{r as a}from"./http-CVTBFseJ.js";const r="shop",s=async t=>await a({url:`${r}/spu/`,method:"get",params:t}),o=async t=>await a({url:`${r}/spu/${t}/`,method:"get"}),u=async t=>await a({url:`${r}/category/`,method:"get",params:t});export{s as a,o as b,u as g};

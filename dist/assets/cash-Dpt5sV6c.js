@@ -1,1 +1,0 @@
-import{r as e}from"./http-CVTBFseJ.js";const a="cash",r=async()=>await e({url:`${a}/cache/`,method:"get",needToken:!0}),c=async t=>await e({url:`${a}/cache/`,method:"post",data:t,needToken:!0});export{r as g,c as s};
